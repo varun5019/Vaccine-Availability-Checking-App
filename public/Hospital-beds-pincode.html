@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckforVaccine</title>
+    <link rel="stylesheet" href="./index.css">
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./js/index.js" defer></script>
+    <!-- FONT KIT -->
+    <script src="https://kit.fontawesome.com/d94e9b5196.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="row g-0" id="aa">
+        <div class="col-sm-12 col-md-5 col-lg-7  abc">
+            <div class="clogo">
+                <a href="https://www.inventeurs.in/">
+                    <img src="./inventeurs.svg" alt="Logo">
+                </a>
+            </div>
+            <div class="ctext">
+                <h1>Covid Vaccine <br>Registration</h1>
+                <hr>
+            </div>
+            <div class="cinfo">
+                <h5>For more info go to</h5>
+                <h5><a id="webid" href="https://www.inventeurs.in">www.inventeurs.in</a></h5>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-7 col-lg-5">
+            <div class="detail-box">
+                <div class="heading">
+                    <div id="backshow" style="display: none;">
+                        <a href="./index.html" style="text-decoration: none; color: #535353;"><span><i
+                                    class="fas fa-arrow-left"
+                                    style="font-size: 25px; margin-right: 15px;"></i></span></a>
+                    </div>
+                    <br>
+                    <h2>Search for <span style="color:#FF9629">Hospital Beds</span> </h2>
+                    <h6>Search for<a id="link-all" href="./index.html"><b> Vaccination Slots</b></a></h6>
+                    <br>
+                    <h6 id="e1">Search for hospital beds • Get notified</h6>
+
+
+                </div>
+
+                <div id="show" style="display: none;">
+
+                    <div class="r-uti">
+                        <!-- <a href="./index.html" style="text-decoration: none; color: #535353;"><span><i class="fas fa-arrow-left" style="font-size: 25px; margin-right: 15px;"></i></span></a>
+                            <br><br> -->
+                        <div id="myDIV">
+                            <button type="button" class="filter mr-4 mb-3" href="#">18-44</button>
+                            <button type="button" class="filter mr-4 mb-3" href="#">45+</button>
+                            <button type="button" class="filter mr-4 mb-3" href="#">Covaxin</button>
+                            <button type="button" class="filter mb-3" href="#">Covishield</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="hide">
+
+                    <div class="formm" id="f2">
+                        <div class="f-sec justify-content-center">
+                            <h5>Pincode</h5>
+                            <div class="justify-content-center">
+
+                                <input id="pinc" type="number" placeholder="Pincode" name="Pincode">
+                            </div>
+                        </div>
+
+                        <!-- ---------------FOR NO SLOTS------------------ -->
+                        <div id="warn" style="display: none;">
+
+                            <p style="font-size: 0.8em; margin-bottom: 0;"><i class="fas fa-times-circle"
+                                    style="color: #ef4437; margin-right: 10px;"></i>No Slots Available for this pincode.
+                            </p>
+
+                        </div>
+                        <div id="noti" style="display: none;" onclick="detail()">
+
+                            <p style="font-size: 0.8em; margin-bottom: 0;"><i class="fas fa-bell"
+                                    style="color: #1565c0; margin-right: 10px;"></i>Notify me when a slot opens up.<i
+                                    class="fas fa-arrow-right" style="margin-left: 10%;"></i></p>
+
+                        </div>
+                        <!-- ------------------------FOR COLLECTING USER INFO--------------------- -->
+                        <!-- <div id="info">
+                                
+                            </div> -->
+                        <!-- ---------------------  -->
+                        <div class="or">
+                            OR
+                            <br>
+                            <a href="./Hospital-beds-state.html" class="lin">
+                                <b>
+                                    Use District and State
+                                </b>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+                    <div class="d-grid">
+                        <button class="btn  cbtn" type="submit" id="search" onclick="gotoempty()">Search Slots</button>
+                    </div>
+
+                </div>
+                <div id="siic">
+                    <h6>powered by</h6>
+                    <a href="https://www.inventeurs.in/">
+                        <img src="./inven.svg" alt="">
+                    </a>
+                    <a href="">
+                        <img style="margin-left: 10px;" src="./Siic.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+        function popup() {
+            var popp = document.getElementById(f2);
+            popp.classList.toggle("show");
+        }
+        var input = document.getElementById("pinc");
+        input.addEventListener("keyup", function (event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById("search").click();
+            }
+        });
+
+        // --------------FOR FILTERS BUTTON-----------
+        var header = document.getElementById("myDIV");
+        var btns = header.getElementsByClassName("filter");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                if (current.length > 0) {
+                    current[0].className = current[0].className.replace(" active", "");
+                }
+                this.className += " active";
+            });
+        }
+        function gotoempty(){
+            window.location = "./bedssample.html"
+        }
+
+    </script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.0/firebase-storage.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
